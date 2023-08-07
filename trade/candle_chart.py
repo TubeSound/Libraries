@@ -231,7 +231,7 @@ class CandleChart:
         if xlabel == False:
             self.ax.tick_params(labelbottom=False, bottom=False)
         
-    def drawLine(self, time, value, color='red', linestyle='solid', linewidth=1.0, should_set_xlim=True, ylim=None, label='', xlabel=False):
+    def drawLine(self, time, value, color='red', linestyle='solid', linewidth=1.0, should_set_xlim=True, ylim=None, label=''):
         self.time = time
         tfloat = awarePyTimeList2Float(time)
         self.ax.plot(tfloat, value, color=color, linestyle=linestyle, linewidth=linewidth, label=label)
@@ -241,13 +241,6 @@ class CandleChart:
             self.ax.set_xlim(tfloat[0], tfloat[-1])
         self.ax.grid(True)
         self.drawComments(False)
-        if xlabel == False:
-            self.ax.tick_params(labelbottom=False, bottom=False)
-        else:
-            #tick = self.ticks_day(time[0], time[-1], 30)        
-            #self.ax.set_xticks(tick)
-            self.ax.tick_params(labelbottom=True, bottom=True)
-            
         
     def drawBand(self, time, status, colors=None, tick_minutes=60, xlabel=False):
         self.time = time
